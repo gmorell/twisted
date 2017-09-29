@@ -1570,7 +1570,7 @@ class ESMTPClient(SMTPClient):
             resp = auth.challengeResponse(self.secret, challenge)
             self._expected = [235, 334]
             self._okresponse = self.smtpState_maybeAuthenticated
-            self.sendLine(base64.b64encode(resp))
+            self.sendLine(base64.b64encode(resp.encode()))
 
 
     def smtpState_maybeAuthenticated(self, code, resp):
